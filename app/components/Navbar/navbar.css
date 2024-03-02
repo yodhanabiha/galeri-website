@@ -1,0 +1,42 @@
+.navbar {
+    background-color: #f8f9fa;
+    margin-left: 224px;
+    transition: margin-left 0.5s ease, width 0.5s ease,;
+    top: 0;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+    position: fixed !important;
+    width: calc(100% - 224px);
+    z-index: 9;
+}
+
+.full {
+    margin-left: 68px;
+    transition: margin-left 0.5s ease, width 0.5s ease,;
+    width: calc(100% - 68px);
+    z-index: 9;
+}
+
+.icon {
+    color: #393c4d;
+    cursor: pointer;
+}
+
+.circle {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+}
+
+@media screen and (max-width: 768px) {
+    .navbar {
+        margin-left: 68px;
+        transition: margin-left 0.5s ease, width 0.5s ease,;
+        width: calc(100% - 68px);
+    }
+    .full {
+        margin-left: 0px;
+        transition: margin-left 0.5s ease, width 0.5s ease,;
+        width: 100%;
+    }
+}
