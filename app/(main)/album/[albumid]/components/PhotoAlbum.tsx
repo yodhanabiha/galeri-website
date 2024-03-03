@@ -1,17 +1,17 @@
-"use client";
+"use client"
 import { Button, Spinner } from "react-bootstrap"
-import styles from "./foto.module.css"
-import { getPhotoList, photoListGet, statusPhotoList, useDispatch, useSelector } from "@/lib/redux";
+import styles from "./photo.module.css"
+import { albumPhotoListGet, getAlbumPhotoList, statusAlbumPhotoGet, useDispatch, useSelector } from "@/lib/redux";
 import { useEffect } from "react";
 
-export const Fotos = () => {
+export const PhotoAlbum = (params: {id : string}) => {
     const dispatch = useDispatch();
-    const photoList = useSelector(photoListGet);
-    const statusList = useSelector(statusPhotoList)
+    const photoList = useSelector(albumPhotoListGet);
+    const statusList = useSelector(statusAlbumPhotoGet)
     const lokasiFileList = photoList.length > 0 ? photoList.map(photo => `${process.env.NEXT_PUBLIC_URL}${photo.LokasiFile}`) : [];
 
     useEffect(() => {
-        dispatch(getPhotoList())
+        dispatch(getAlbumPhotoList(params.id))
     }, [])
 
 

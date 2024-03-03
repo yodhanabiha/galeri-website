@@ -1,11 +1,27 @@
+"use client";
+import { createAlbum, useDispatch } from "@/lib/redux";
+import { useState } from "react";
 import { Button, Col, Form, Modal, Row } from "react-bootstrap";
 
-interface ModalParam{
-    show : boolean,
-    onHide : () => void
+interface ModalParam {
+    show: boolean,
+    onHide: () => void
 }
 
 export function ModalForm(params: ModalParam) {
+    const dispatch = useDispatch();
+    const [judul, setJudul] = useState<string>("")
+    const [des, setDes] = useState<string>("")
+
+    const handleCreate = () => {
+        dispatch(createAlbum({ Deskripsi: des, NamaAlbum: judul, userId: "65e20ccae65b1bc67a035ae4" }))
+            .then((res) => {
+                if (res.meta.requestStatus === "fulfilled") {
+                    window.location.reload();
+                }
+            })
+    }
+
     return (
         <Modal
             {...params}
@@ -25,7 +41,7 @@ export function ModalForm(params: ModalParam) {
                             Judul
                         </Form.Label>
                         <Col sm="10">
-                            <Form.Control placeholder="Judul Album" />
+                            <Form.Control value={judul} onChange={(e) => { setJudul(e.target.value) }} placeholder="Judul Album" />
                         </Col>
                     </Form.Group>
 
@@ -34,13 +50,13 @@ export function ModalForm(params: ModalParam) {
                             Deskripsi
                         </Form.Label>
                         <Col sm="10">
-                            <Form.Control placeholder="Deskripsi Album"/>
+                            <Form.Control value={des} onChange={(e) => { setDes(e.target.value) }} placeholder="Deskripsi Album" />
                         </Col>
                     </Form.Group>
                 </Form>
             </Modal.Body>
             <Modal.Footer>
-                <Button onClick={params.onHide}>Close</Button>
+                <Button onClick={() => handleCreate()}>Save</Button>
             </Modal.Footer>
         </Modal>
     );

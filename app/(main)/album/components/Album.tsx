@@ -13,7 +13,7 @@ export const Albums = () => {
     const [modalShow, setModalShow] = useState(false);
 
     useEffect(() => {
-        dispatch(getAlbumList())
+        dispatch(getAlbumList("65e20ccae65b1bc67a035ae4"))
     }, [])
 
     return (
@@ -23,7 +23,7 @@ export const Albums = () => {
                     <Spinner animation="border" />
                 )}
                 {albumList && albumList.map((group, index) => (
-                    <Card className={styles.cardAlbum}>
+                    <Card className={styles.cardAlbum} key={index} onClick={() => { window.location.href = `album/${group._id}`; }}>
                         <Row>
                             <div className={styles.image1} >
                                 {group.photo[0] && group.photo[0].LokasiFile ?
@@ -52,11 +52,9 @@ export const Albums = () => {
                     </Card>
                 ))}
 
-                
-
             </div>
             <ModalForm show={modalShow} onHide={() => setModalShow(false)} />
-            <Button variant="outline-dark" className={styles.buttonUpload} onClick={() => setModalShow(true)}>
+            <Button variant="outline-dark" className={`${styles.buttonUpload}`} onClick={() => setModalShow(true)}>
                 <FaUpload size={35} />
             </Button>
         </>

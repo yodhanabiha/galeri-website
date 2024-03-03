@@ -9,7 +9,7 @@
 .cardAlbum .image1,
 .cardAlbum .image2 {
   flex: 1;
-  height: 30vh;
+  height: 20vh;
   overflow: hidden;
   margin-bottom: 10px;
 }
@@ -46,10 +46,9 @@
 .container {
   display: grid;
   padding: 20px;
-  height: 100vh;
   width: 100%;
   margin-top: 15px;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-gap: 20px;
   grid-row-gap: 10px;
 }
@@ -66,34 +65,28 @@
 
 .button {
   background-color: #4CAF50;
-  /* Warna latar belakang */
   color: white;
-  /* Warna teks */
   padding: 15px 32px;
-  /* Padding dan ukuran */
   text-align: center;
-  /* Penataan teks */
   text-decoration: none;
-  /* Dekorasi teks */
   font-size: 16px;
   width: 20%;
   margin: 9px 10px;
   cursor: pointer;
-  /* Cursor saat mouse diatas button */
   border-radius: 8px;
-  /* Sudut bulat */
 }
 
 .button:hover {
   background-color: #45a049;
-  /* Warna saat di-hover */
 }
 
 .button:active {
   background-color: #3e8e41;
-  /* Warna saat diklik */
   box-shadow: 0 5px #666;
-  /* Bayangan saat diklik */
   transform: translateY(4px);
-  /* Pergerakan saat diklik */
+}
+
+.cardAlbum:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }

@@ -16,10 +16,10 @@ export default function RootLayout({
   return (
     <Providers>
       <html lang="en">
-        <body style={{padding:'0px'}}>
+        <body style={{ padding: '0', margin: '0' }}>
           <NavBar />
           <Sidebar />
-          <Body children={children}/>
+          <Body children={children} />
         </body>
       </html>
     </Providers>
